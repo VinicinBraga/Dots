@@ -1,0 +1,37 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.head-btns{
+  display: flex;
+  align-items: center;
+  height: 10vh;
+}
+.container{
+  border: rgb(95, 95, 95) 1px solid;
+  background-color: white;
+  height: 70vh;
+}
+.ball{
+  background-color: rgb(0, 255, 34);
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.btn{
+  width: 10vw;
+  height: 5vh;
+  margin-left: 2vw;
+  background-color: rgb(117, 117, 117);
+  color: white;
+  border-radius: 6%;
+  border: rgb(0, 255, 34) 2px solid;
+}
+.btn:disabled{
+  background-color: rgb(151, 151, 151);
+  color: rgb(207, 207, 207);
+  border-radius: 6%;
+  border: rgb(216, 255, 208) 2px solid;
+}
