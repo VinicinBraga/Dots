@@ -3,18 +3,38 @@
   margin: 0;
   box-sizing: border-box;
 }
+.App{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 25% 0 25%;
+}
+.title{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 5vh;
+  color: transparent;
+  background: #666666;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.5);
+  border-color: blue;
+  margin-bottom: 2vh;
+  margin-top: 4vh;
+}
 .head-btns{
   display: flex;
   align-items: center;
   height: 10vh;
 }
 .container{
-  border: rgb(95, 95, 95) 1px solid;
-  background-color: white;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.521);
+  border-radius: 10px;
   height: 70vh;
 }
 .ball{
   background-color: rgb(0, 255, 34);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.521);
   height: 25px;
   width: 25px;
   border-radius: 50%;
@@ -26,8 +46,9 @@
   margin-left: 2vw;
   background-color: rgb(117, 117, 117);
   color: white;
-  border-radius: 6%;
+  border-radius: 8px;
   border: rgb(0, 255, 34) 2px solid;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.521);
 }
 .btn:disabled{
   background-color: rgb(151, 151, 151);

@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const [clickedPoints, setClickedPoints] = useState([]);
+  const [undoPoints, setUndoPoints] = useState([]);
 
   const getCoordinates = (e) => {
     const { clientX, clientY } = e;
@@ -12,12 +13,37 @@ function App() {
 
   const handleUndo = () => {
     const newClickedPoints = [...clickedPoints];
-    newClickedPoints.pop();
+    const undoPoint = newClickedPoints.pop();
     setClickedPoints(newClickedPoints);
+    setUndoPoints([...undoPoints, undoPoint]);
+  };
+
+  const handleRedo = () => {
+    const newUndoPoints = [...undoPoints];
+    const redoPoint = newUndoPoints.pop();
+    setUndoPoints(newUndoPoints);
+    setClickedPoints([...clickedPoints, redoPoint]);
   };
 
   return (
     <div className="App">
+      <div className="title">Make dots wherever you want, my friend!!</div>
+
+      <div className="container" onClick={getCoordinates}>
+        {clickedPoints.map((clickedPoint, index) => {
+          return (
+            <div
+              key={index}
+              className="ball"
+              style={{
+                left: clickedPoint.clientX,
+                top: clickedPoint.clientY,
+                position: "absolute",
+              }}
+            ></div>
+          );
+        })}
+      </div>
       <div className="head-btns">
         <button
           className="btn"
@@ -26,21 +52,13 @@ function App() {
         >
           Undo
         </button>
-      </div>
-      <div className="container" onClick={getCoordinates}>
-        {clickedPoints.map((clickedPoint, index) => {
-          return (
-            <div
-              key={index}
-              className="ball"
-              style={{
-                left: clickedPoint.clientX - 15,
-                top: clickedPoint.clientY - 15,
-                position: "absolute",
-              }}
-            ></div>
-          );
-        })}
+        <button
+          className="btn"
+          onClick={handleRedo}
+          disabled={undoPoints.length === 0}
+        >
+          Redo
+        </button>
       </div>
     </div>
   );
